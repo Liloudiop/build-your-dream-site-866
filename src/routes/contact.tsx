@@ -7,7 +7,7 @@ import { SITE } from "@/lib/site";
 import { PageHeader, Section } from "@/components/site/Layout";
 
 export const Route = createFileRoute("/contact")({
-  validateSearch: (s: Record<string, unknown>) => ({ sujet: typeof s.sujet === "string" ? s.sujet : undefined }),
+  validateSearch: (s: Record<string, unknown>): { sujet?: string } => (typeof s["sujet"] === "string" ? { sujet: s["sujet"] } : {}),
   head: () => ({
     meta: [
       { title: "Contact — Sahel Avenir" },
@@ -34,9 +34,9 @@ function Contact() {
     e.preventDefault();
     const form = e.currentTarget;
     const parsed = schema.safeParse(Object.fromEntries(new FormData(form)));
-    if (!parsed.success) { toast.error(parsed.error.issues[0].message); return; }
+    if (!parsed.success) { toast.error(parsed.error.issues[0]?.message ?? "Formulaire invalide"); return; }
     setSending(true);
-    const { error } = await supabase.from("contact_messages").insert(parsed.data);
+    const { error } = await supabase.from("contact_messages").insert({ ...parsed.data, subject: parsed.data.subject ?? null });
     setSending(false);
     if (error) { toast.error("Envoi impossible, réessayez."); return; }
     toast.success("Message envoyé, nous vous répondrons rapidement.");

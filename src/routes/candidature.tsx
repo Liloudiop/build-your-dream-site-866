@@ -7,7 +7,7 @@ import { FORMATIONS } from "@/lib/site";
 import { PageHeader, Section } from "@/components/site/Layout";
 
 export const Route = createFileRoute("/candidature")({
-  validateSearch: (s: Record<string, unknown>) => ({ formation: typeof s.formation === "string" ? s.formation : undefined }),
+  validateSearch: (s: Record<string, unknown>): { formation?: string } => (typeof s["formation"] === "string" ? { formation: s["formation"] } : {}),
   head: () => ({
     meta: [
       { title: "Candidater à une formation — Sahel Avenir" },
@@ -40,9 +40,9 @@ function Candidature() {
     e.preventDefault();
     const data = Object.fromEntries(new FormData(e.currentTarget)) as Record<string, string>;
     const parsed = schema.safeParse(data);
-    if (!parsed.success) { toast.error(parsed.error.issues[0].message); return; }
+    if (!parsed.success) { toast.error(parsed.error.issues[0]?.message ?? "Formulaire invalide"); return; }
     setSending(true);
-    const { error } = await supabase.from("applications").insert(parsed.data);
+    const { error } = await supabase.from("applications").insert({ ...parsed.data, city: parsed.data.city ?? null, situation: parsed.data.situation ?? null, education_level: parsed.data.education_level ?? null, availability: parsed.data.availability ?? null });
     setSending(false);
     if (error) { toast.error("Envoi impossible, réessayez."); return; }
     setDone(true);
