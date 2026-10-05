@@ -10,33 +10,193 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AProposRouteImport } from './routes/a-propos'
+import { Route as ActualitesRouteImport } from './routes/actualites'
+import { Route as CandidatureRouteImport } from './routes/candidature'
+import { Route as ConnexionRouteImport } from './routes/connexion'
+import { Route as ContactRouteImport } from './routes/contact'
+import { Route as EvenementsRouteImport } from './routes/evenements'
+import { Route as GalerieRouteImport } from './routes/galerie'
+import { Route as InsertionRouteImport } from './routes/insertion'
+import { Route as PartenairesRouteImport } from './routes/partenaires'
+import { Route as TemoignagesRouteImport } from './routes/temoignages'
+import { Route as FormationsIndexRouteImport } from './routes/formations.index'
+import { Route as FormationsSlugRouteImport } from './routes/formations.$slug'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AProposRoute = AProposRouteImport.update({
+  id: '/a-propos',
+  path: '/a-propos',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ActualitesRoute = ActualitesRouteImport.update({
+  id: '/actualites',
+  path: '/actualites',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CandidatureRoute = CandidatureRouteImport.update({
+  id: '/candidature',
+  path: '/candidature',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ConnexionRoute = ConnexionRouteImport.update({
+  id: '/connexion',
+  path: '/connexion',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EvenementsRoute = EvenementsRouteImport.update({
+  id: '/evenements',
+  path: '/evenements',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const GalerieRoute = GalerieRouteImport.update({
+  id: '/galerie',
+  path: '/galerie',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const InsertionRoute = InsertionRouteImport.update({
+  id: '/insertion',
+  path: '/insertion',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PartenairesRoute = PartenairesRouteImport.update({
+  id: '/partenaires',
+  path: '/partenaires',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TemoignagesRoute = TemoignagesRouteImport.update({
+  id: '/temoignages',
+  path: '/temoignages',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FormationsIndexRoute = FormationsIndexRouteImport.update({
+  id: '/formations/',
+  path: '/formations/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FormationsSlugRoute = FormationsSlugRouteImport.update({
+  id: '/formations/$slug',
+  path: '/formations/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/a-propos': typeof AProposRoute
+  '/actualites': typeof ActualitesRoute
+  '/candidature': typeof CandidatureRoute
+  '/connexion': typeof ConnexionRoute
+  '/contact': typeof ContactRoute
+  '/evenements': typeof EvenementsRoute
+  '/galerie': typeof GalerieRoute
+  '/insertion': typeof InsertionRoute
+  '/partenaires': typeof PartenairesRoute
+  '/temoignages': typeof TemoignagesRoute
+  '/formations/$slug': typeof FormationsSlugRoute
+  '/formations/': typeof FormationsIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/a-propos': typeof AProposRoute
+  '/actualites': typeof ActualitesRoute
+  '/candidature': typeof CandidatureRoute
+  '/connexion': typeof ConnexionRoute
+  '/contact': typeof ContactRoute
+  '/evenements': typeof EvenementsRoute
+  '/galerie': typeof GalerieRoute
+  '/insertion': typeof InsertionRoute
+  '/partenaires': typeof PartenairesRoute
+  '/temoignages': typeof TemoignagesRoute
+  '/formations/$slug': typeof FormationsSlugRoute
+  '/formations': typeof FormationsIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/a-propos': typeof AProposRoute
+  '/actualites': typeof ActualitesRoute
+  '/candidature': typeof CandidatureRoute
+  '/connexion': typeof ConnexionRoute
+  '/contact': typeof ContactRoute
+  '/evenements': typeof EvenementsRoute
+  '/galerie': typeof GalerieRoute
+  '/insertion': typeof InsertionRoute
+  '/partenaires': typeof PartenairesRoute
+  '/temoignages': typeof TemoignagesRoute
+  '/formations/$slug': typeof FormationsSlugRoute
+  '/formations/': typeof FormationsIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/a-propos'
+    | '/actualites'
+    | '/candidature'
+    | '/connexion'
+    | '/contact'
+    | '/evenements'
+    | '/galerie'
+    | '/insertion'
+    | '/partenaires'
+    | '/temoignages'
+    | '/formations/$slug'
+    | '/formations/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/a-propos'
+    | '/actualites'
+    | '/candidature'
+    | '/connexion'
+    | '/contact'
+    | '/evenements'
+    | '/galerie'
+    | '/insertion'
+    | '/partenaires'
+    | '/temoignages'
+    | '/formations/$slug'
+    | '/formations'
+  id:
+    | '__root__'
+    | '/'
+    | '/a-propos'
+    | '/actualites'
+    | '/candidature'
+    | '/connexion'
+    | '/contact'
+    | '/evenements'
+    | '/galerie'
+    | '/insertion'
+    | '/partenaires'
+    | '/temoignages'
+    | '/formations/$slug'
+    | '/formations/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AProposRoute: typeof AProposRoute
+  ActualitesRoute: typeof ActualitesRoute
+  CandidatureRoute: typeof CandidatureRoute
+  ConnexionRoute: typeof ConnexionRoute
+  ContactRoute: typeof ContactRoute
+  EvenementsRoute: typeof EvenementsRoute
+  GalerieRoute: typeof GalerieRoute
+  InsertionRoute: typeof InsertionRoute
+  PartenairesRoute: typeof PartenairesRoute
+  TemoignagesRoute: typeof TemoignagesRoute
+  FormationsSlugRoute: typeof FormationsSlugRoute
+  FormationsIndexRoute: typeof FormationsIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +208,107 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/a-propos': {
+      id: '/a-propos'
+      path: '/a-propos'
+      fullPath: '/a-propos'
+      preLoaderRoute: typeof AProposRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/actualites': {
+      id: '/actualites'
+      path: '/actualites'
+      fullPath: '/actualites'
+      preLoaderRoute: typeof ActualitesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/candidature': {
+      id: '/candidature'
+      path: '/candidature'
+      fullPath: '/candidature'
+      preLoaderRoute: typeof CandidatureRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/connexion': {
+      id: '/connexion'
+      path: '/connexion'
+      fullPath: '/connexion'
+      preLoaderRoute: typeof ConnexionRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/evenements': {
+      id: '/evenements'
+      path: '/evenements'
+      fullPath: '/evenements'
+      preLoaderRoute: typeof EvenementsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/galerie': {
+      id: '/galerie'
+      path: '/galerie'
+      fullPath: '/galerie'
+      preLoaderRoute: typeof GalerieRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/insertion': {
+      id: '/insertion'
+      path: '/insertion'
+      fullPath: '/insertion'
+      preLoaderRoute: typeof InsertionRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/partenaires': {
+      id: '/partenaires'
+      path: '/partenaires'
+      fullPath: '/partenaires'
+      preLoaderRoute: typeof PartenairesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/temoignages': {
+      id: '/temoignages'
+      path: '/temoignages'
+      fullPath: '/temoignages'
+      preLoaderRoute: typeof TemoignagesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/formations/': {
+      id: '/formations/'
+      path: '/formations'
+      fullPath: '/formations/'
+      preLoaderRoute: typeof FormationsIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/formations/$slug': {
+      id: '/formations/$slug'
+      path: '/formations/$slug'
+      fullPath: '/formations/$slug'
+      preLoaderRoute: typeof FormationsSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AProposRoute: AProposRoute,
+  ActualitesRoute: ActualitesRoute,
+  CandidatureRoute: CandidatureRoute,
+  ConnexionRoute: ConnexionRoute,
+  ContactRoute: ContactRoute,
+  EvenementsRoute: EvenementsRoute,
+  GalerieRoute: GalerieRoute,
+  InsertionRoute: InsertionRoute,
+  PartenairesRoute: PartenairesRoute,
+  TemoignagesRoute: TemoignagesRoute,
+  FormationsSlugRoute: FormationsSlugRoute,
+  FormationsIndexRoute: FormationsIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
