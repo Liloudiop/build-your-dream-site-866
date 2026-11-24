@@ -6,9 +6,9 @@ import { PageHeader, Section } from "@/components/site/Layout";
 export const Route = createFileRoute("/temoignages")({
   head: () => ({
     meta: [
-      { title: "Témoignages — Sahel Avenir" },
-      { name: "description", content: "Anciens stagiaires et entreprises partenaires racontent leur expérience." },
-      { property: "og:title", content: "Ils témoignent — Sahel Avenir" },
+      { title: "Témoignages — AFIJ-TOUBA" },
+      { name: "description", content: "Anciens stagiaires et partenaires racontent leur expérience avec AFIJ-TOUBA." },
+      { property: "og:title", content: "Ils témoignent — AFIJ-TOUBA" },
       { property: "og:description", content: "Paroles de bénéficiaires et d'entreprises." },
     ],
   }),

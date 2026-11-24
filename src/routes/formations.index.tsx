@@ -7,10 +7,10 @@ import { PageHeader, Section } from "@/components/site/Layout";
 export const Route = createFileRoute("/formations/")({
   head: () => ({
     meta: [
-      { title: "Catalogue des formations — Sahel Avenir" },
-      { name: "description", content: "Énergie solaire, numérique, cuisine, couture, électricité, entrepreneuriat : découvrez nos formations certifiantes." },
-      { property: "og:title", content: "Nos formations — Sahel Avenir" },
-      { property: "og:description", content: "Formations certifiantes et qualifiantes à Dakar, Thiès et Saint-Louis." },
+      { title: "Catalogue des formations — AFIJ-TOUBA" },
+      { name: "description", content: "Énergie solaire, numérique, cuisine, couture, électricité, entrepreneuriat : découvrez nos formations orientées vers l'emploi." },
+      { property: "og:title", content: "Nos formations — AFIJ-TOUBA" },
+      { property: "og:description", content: "Formations certifiantes et qualifiantes pour les jeunes de Touba." },
     ],
   }),
   component: Catalogue,

@@ -5,9 +5,9 @@ import { PageHeader, Section } from "@/components/site/Layout";
 export const Route = createFileRoute("/actualites")({
   head: () => ({
     meta: [
-      { title: "Actualités — Sahel Avenir" },
-      { name: "description", content: "Annonces, appels à candidatures, partenariats et vie de l'association." },
-      { property: "og:title", content: "Actualités — Sahel Avenir" },
+      { title: "Actualités — AFIJ-TOUBA" },
+      { name: "description", content: "Annonces, appels à candidatures, partenariats et vie de l'association à Touba." },
+      { property: "og:title", content: "Actualités — AFIJ-TOUBA" },
       { property: "og:description", content: "Toute l'actualité de l'association." },
     ],
   }),

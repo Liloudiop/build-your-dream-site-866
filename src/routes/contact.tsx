@@ -3,16 +3,17 @@ import { useState } from "react";
 import { z } from "zod";
 import { toast } from "sonner";
 import { supabase } from "@/integrations/supabase/client";
-import { SITE } from "@/lib/site";
+import { SITE, SITE_IMAGES } from "@/lib/site";
 import { PageHeader, Section } from "@/components/site/Layout";
 
 export const Route = createFileRoute("/contact")({
-  validateSearch: (s: Record<string, unknown>): { sujet?: string } => (typeof s["sujet"] === "string" ? { sujet: s["sujet"] } : {}),
+  validateSearch: (s: Record<string, unknown>): { sujet?: string } =>
+    typeof s["sujet"] === "string" ? { sujet: s["sujet"] } : {},
   head: () => ({
     meta: [
-      { title: "Contact — Sahel Avenir" },
-      { name: "description", content: "Écrivez-nous, appelez-nous ou passez nous voir à Dakar." },
-      { property: "og:title", content: "Contacter Sahel Avenir" },
+      { title: "Contact — AFIJ-TOUBA" },
+      { name: "description", content: "Écrivez-nous, appelez-nous ou passez nous voir à Touba." },
+      { property: "og:title", content: "Contacter AFIJ-TOUBA" },
       { property: "og:description", content: "Coordonnées et formulaire de contact." },
     ],
   }),
@@ -34,11 +35,19 @@ function Contact() {
     e.preventDefault();
     const form = e.currentTarget;
     const parsed = schema.safeParse(Object.fromEntries(new FormData(form)));
-    if (!parsed.success) { toast.error(parsed.error.issues[0]?.message ?? "Formulaire invalide"); return; }
+    if (!parsed.success) {
+      toast.error(parsed.error.issues[0]?.message ?? "Formulaire invalide");
+      return;
+    }
     setSending(true);
-    const { error } = await supabase.from("contact_messages").insert({ ...parsed.data, subject: parsed.data.subject ?? null });
+    const { error } = await supabase
+      .from("contact_messages")
+      .insert({ ...parsed.data, subject: parsed.data.subject ?? null });
     setSending(false);
-    if (error) { toast.error("Envoi impossible, réessayez."); return; }
+    if (error) {
+      toast.error("Envoi impossible, réessayez.");
+      return;
+    }
     toast.success("Message envoyé, nous vous répondrons rapidement.");
     form.reset();
   }
@@ -48,12 +57,49 @@ function Contact() {
       <PageHeader eyebrow="Contact" title="Parlons de votre projet" />
       <Section>
         <div className="grid gap-6 lg:grid-cols-[0.8fr_1.2fr]">
-          <div className="glass space-y-4 p-6 text-sm">
-            <div><div className="text-foreground/50">Adresse</div><div className="mt-1">{SITE.address}</div></div>
-            <div><div className="text-foreground/50">Téléphone</div><div className="mt-1">{SITE.phone}</div></div>
-            <div><div className="text-foreground/50">Email</div><div className="mt-1">{SITE.email}</div></div>
-            <div><div className="text-foreground/50">Horaires</div><div className="mt-1">Lundi – vendredi, 8h30 – 17h30</div></div>
-            <a href={`https://wa.me/${SITE.whatsapp}`} target="_blank" rel="noreferrer" className="inline-block rounded-lg bg-accent px-4 py-2 font-medium text-accent-foreground">Écrire sur WhatsApp</a>
+          <div className="overflow-hidden rounded-2xl border border-border bg-card shadow-[0_10px_30px_rgba(20,45,31,0.05)]">
+            <img
+              src={SITE_IMAGES.accueilAfij}
+              alt="L’équipe AFIJ-TOUBA accueille les visiteurs dans ses locaux."
+              loading="lazy"
+              className="aspect-[16/9] w-full object-cover"
+            />
+            <div className="space-y-4 p-6 text-sm">
+              <div>
+                <div className="text-foreground/50">Adresse</div>
+                <div className="mt-1">{SITE.address}</div>
+              </div>
+              <div>
+                <div className="text-foreground/50">Téléphone</div>
+                <div className="mt-1 grid gap-1">
+                  {SITE.phones.map((phone) => (
+                    <a
+                      key={phone}
+                      href={`tel:${phone.replaceAll(" ", "")}`}
+                      className="hover:text-primary"
+                    >
+                      {phone}
+                    </a>
+                  ))}
+                </div>
+              </div>
+              <div>
+                <div className="text-foreground/50">Email</div>
+                <div className="mt-1">{SITE.email}</div>
+              </div>
+              <div>
+                <div className="text-foreground/50">Horaires</div>
+                <div className="mt-1">Lundi – vendredi, 8h30 – 17h30</div>
+              </div>
+              <a
+                href={`https://wa.me/${SITE.whatsapp}`}
+                target="_blank"
+                rel="noreferrer"
+                className="inline-block rounded-lg bg-primary px-4 py-2 font-medium text-primary-foreground"
+              >
+                Écrire sur WhatsApp
+              </a>
+            </div>
           </div>
           <form onSubmit={onSubmit} className="glass grid gap-4 p-6">
             <div className="grid gap-4 sm:grid-cols-2">
@@ -61,8 +107,19 @@ function Contact() {
               <input name="email" type="email" className="field" placeholder="Email" required />
             </div>
             <input name="subject" className="field" placeholder="Sujet" defaultValue={sujet} />
-            <textarea name="message" rows={6} className="field" placeholder="Votre message" required />
-            <button disabled={sending} className="justify-self-end rounded-lg bg-primary px-6 py-3 text-sm font-medium text-primary-foreground disabled:opacity-60">{sending ? "Envoi…" : "Envoyer"}</button>
+            <textarea
+              name="message"
+              rows={6}
+              className="field"
+              placeholder="Votre message"
+              required
+            />
+            <button
+              disabled={sending}
+              className="justify-self-end rounded-lg bg-primary px-6 py-3 text-sm font-medium text-primary-foreground disabled:opacity-60"
+            >
+              {sending ? "Envoi…" : "Envoyer"}
+            </button>
           </form>
         </div>
       </Section>

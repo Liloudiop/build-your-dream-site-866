@@ -1,23 +1,13 @@
 import { createFileRoute } from "@tanstack/react-router";
-import hero from "@/assets/hero.jpg";
-import solaire from "@/assets/f-solaire.jpg";
-import web from "@/assets/f-web.jpg";
-import cuisine from "@/assets/f-cuisine.jpg";
+import { SITE_GALLERY } from "@/lib/site";
 import { PageHeader, Section } from "@/components/site/Layout";
-
-const PHOTOS = [
-  { src: hero, alt: "Atelier de menuiserie" },
-  { src: solaire, alt: "Installation solaire" },
-  { src: web, alt: "Formation numérique" },
-  { src: cuisine, alt: "Atelier cuisine" },
-];
 
 export const Route = createFileRoute("/galerie")({
   head: () => ({
     meta: [
-      { title: "Galerie photos — Sahel Avenir" },
-      { name: "description", content: "Images de nos ateliers, formations et événements." },
-      { property: "og:title", content: "Galerie — Sahel Avenir" },
+      { title: "Galerie photos — AFIJ-TOUBA" },
+      { name: "description", content: "Images de nos ateliers, formations et événements à Touba." },
+      { property: "og:title", content: "Galerie — AFIJ-TOUBA" },
       { property: "og:description", content: "Nos ateliers en images." },
     ],
   }),
@@ -25,11 +15,21 @@ export const Route = createFileRoute("/galerie")({
     <>
       <PageHeader eyebrow="Galerie" title="Nos ateliers en images" />
       <Section>
-        <div className="grid gap-5 sm:grid-cols-2">
-          {PHOTOS.map((p) => (
-            <figure key={p.alt} className="glass p-3">
-              <img src={p.src} alt={p.alt} loading="lazy" className="aspect-[4/3] w-full rounded-lg object-cover" />
-              <figcaption className="px-1 pt-3 text-sm text-foreground/70">{p.alt}</figcaption>
+        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          {SITE_GALLERY.map((photo) => (
+            <figure
+              key={photo.src}
+              className="overflow-hidden rounded-2xl border border-border bg-card shadow-[0_10px_30px_rgba(20,45,31,0.05)]"
+            >
+              <img
+                src={photo.src}
+                alt={photo.alt}
+                loading="lazy"
+                className="aspect-[4/3] w-full object-cover"
+              />
+              <figcaption className="px-5 py-4 text-sm font-semibold text-foreground">
+                {photo.caption}
+              </figcaption>
             </figure>
           ))}
         </div>

@@ -4,9 +4,9 @@ import { PageHeader, Section } from "@/components/site/Layout";
 export const Route = createFileRoute("/connexion")({
   head: () => ({
     meta: [
-      { title: "Connexion aux espaces — Sahel Avenir" },
+      { title: "Connexion aux espaces — AFIJ-TOUBA" },
       { name: "description", content: "Accès aux espaces bénéficiaire, formateur, entreprise et administration." },
-      { property: "og:title", content: "Espaces personnels — Sahel Avenir" },
+      { property: "og:title", content: "Espaces personnels — AFIJ-TOUBA" },
       { property: "og:description", content: "Connexion aux espaces privés." },
     ],
   }),

@@ -13,7 +13,7 @@ export const Route = createFileRoute("/formations/$slug")({
     const { f } = loaderData;
     return {
       meta: [
-        { title: `${f.title} — Sahel Avenir` },
+        { title: `${f.title} — AFIJ-TOUBA` },
         { name: "description", content: f.summary },
         { property: "og:title", content: f.title },
         { property: "og:description", content: f.summary },

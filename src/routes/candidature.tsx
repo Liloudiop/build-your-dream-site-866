@@ -10,9 +10,9 @@ export const Route = createFileRoute("/candidature")({
   validateSearch: (s: Record<string, unknown>): { formation?: string } => (typeof s["formation"] === "string" ? { formation: s["formation"] } : {}),
   head: () => ({
     meta: [
-      { title: "Candidater à une formation — Sahel Avenir" },
-      { name: "description", content: "Déposez votre candidature en ligne en quelques minutes." },
-      { property: "og:title", content: "Candidature en ligne — Sahel Avenir" },
+      { title: "Candidater à une formation — AFIJ-TOUBA" },
+      { name: "description", content: "Déposez votre candidature en ligne pour rejoindre une formation à AFIJ-TOUBA." },
+      { property: "og:title", content: "Candidature en ligne — AFIJ-TOUBA" },
       { property: "og:description", content: "Postulez à nos formations certifiantes en ligne." },
     ],
   }),

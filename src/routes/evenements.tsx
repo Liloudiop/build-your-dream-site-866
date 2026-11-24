@@ -5,9 +5,9 @@ import { PageHeader, Section } from "@/components/site/Layout";
 export const Route = createFileRoute("/evenements")({
   head: () => ({
     meta: [
-      { title: "Événements — Sahel Avenir" },
-      { name: "description", content: "Portes ouvertes, forums emploi, ateliers et pitch days à venir." },
-      { property: "og:title", content: "Événements à venir — Sahel Avenir" },
+      { title: "Événements — AFIJ-TOUBA" },
+      { name: "description", content: "Portes ouvertes, forums emploi, ateliers et pitch days à venir à Touba." },
+      { property: "og:title", content: "Événements à venir — AFIJ-TOUBA" },
       { property: "og:description", content: "Rejoignez nos prochains événements." },
     ],
   }),

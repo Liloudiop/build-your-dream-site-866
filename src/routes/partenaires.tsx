@@ -5,9 +5,9 @@ import { PageHeader, Section } from "@/components/site/Layout";
 export const Route = createFileRoute("/partenaires")({
   head: () => ({
     meta: [
-      { title: "Partenaires — Sahel Avenir" },
-      { name: "description", content: "Institutions, financeurs, entreprises et collectivités qui soutiennent nos actions." },
-      { property: "og:title", content: "Nos partenaires — Sahel Avenir" },
+      { title: "Partenaires — AFIJ-TOUBA" },
+      { name: "description", content: "Institutions, financeurs, entreprises et collectivités qui soutiennent nos actions à Touba." },
+      { property: "og:title", content: "Nos partenaires — AFIJ-TOUBA" },
       { property: "og:description", content: "Ceux qui rendent nos actions possibles." },
     ],
   }),

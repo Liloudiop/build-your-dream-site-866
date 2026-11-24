@@ -80,8 +80,12 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Sahel Avenir — Formation et insertion professionnelle" },
-      { name: "description", content: "Association de formation et d'insertion professionnelle au Sénégal." },
+      { title: "AFIJ-TOUBA — Association pour la Formation et l’Insertion des Jeunes" },
+      {
+        name: "description",
+        content:
+          "Association de formation, insertion professionnelle et entrepreneuriat pour les jeunes de Touba et de la région.",
+      },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
@@ -90,10 +94,14 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         rel: "stylesheet",
         href: appCss,
       },
-      { rel: "icon", href: "/favicon.ico", type: "image/x-icon" },
+      { rel: "icon", href: "/afij-touba-icon.png?v=2", type: "image/png", sizes: "128x128" },
+      { rel: "apple-touch-icon", href: "/afij-touba-icon.png?v=2" },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
-      { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600&display=swap" },
+      {
+        rel: "stylesheet",
+        href: "https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600&display=swap",
+      },
     ],
   }),
   shellComponent: RootShell,
